@@ -8,6 +8,7 @@ I have followed design patterns to make the code more extensible, flexible and e
 I have followed MVC design pattern for this project.
 
 The user can send request via two apis endpoints
+
      curl --location 'localhost:8080/api/temperature' \
     --header 'Content-Type: application/json' \
     --data '{
