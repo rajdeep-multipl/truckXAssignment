@@ -12,6 +12,7 @@ type TemperatureRepo struct {
 	DB *gorm.DB
 }
 
+// This function adds new temperature record in the temeperature table
 func (handler *TemperatureRepo) AddTemperatureRepo(temperature *models.Temperature) error {
 	err := handler.DB.Create(&temperature).Error
 	if err != nil {
@@ -21,6 +22,7 @@ func (handler *TemperatureRepo) AddTemperatureRepo(temperature *models.Temperatu
 	return nil
 }
 
+// This function returns aggregated temperature value based on the sensor id from temperature table
 func (hanlder *TemperatureRepo) GetAggregateValuesForEachSensor() ([]models.AggregatedTemperature, error) {
 	var aggregatedSensorValues []models.AggregatedTemperature
 
@@ -37,6 +39,7 @@ func (hanlder *TemperatureRepo) GetAggregateValuesForEachSensor() ([]models.Aggr
 	return aggregatedSensorValues, nil
 }
 
+// This function adds new record to the aggregated_temperature table
 func (handler *TemperatureRepo) AddAggregatedTemperatures(aggregatedTemperatures []models.AggregatedTemperature) error {
 	err := handler.DB.Create(&aggregatedTemperatures).Error
 	if err != nil {
@@ -46,6 +49,7 @@ func (handler *TemperatureRepo) AddAggregatedTemperatures(aggregatedTemperatures
 	return nil
 }
 
+// This function get the aggregated tempereture value of a sensor within a time range
 func (handler *TemperatureRepo) GetAggregatedDataOfSensorForTimeRange(sensorId int64, startTime time.Time, endTime time.Time) ([]models.AggregatedTemperature, error) {
 	var aggregatedTemperatures []models.AggregatedTemperature
 
@@ -60,6 +64,7 @@ func (handler *TemperatureRepo) GetAggregatedDataOfSensorForTimeRange(sensorId i
 	return aggregatedTemperatures, nil
 }
 
+// This function returns the aggregated temperature value of a sensor
 func (handler *TemperatureRepo) GetAggregatedDataOfSensor(sensorId int64) ([]models.AggregatedTemperature, error) {
 	var aggregatedTemperatures []models.AggregatedTemperature
 
