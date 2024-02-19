@@ -8,7 +8,8 @@ I have followed design patterns to make the code more extensible, flexible and e
 I have followed MVC design pattern for this project.
 
 The user can send request via two apis endpoints
-    1. curl --location 'localhost:8080/api/temperature' \
+
+     curl --location 'localhost:8080/api/temperature' \
     --header 'Content-Type: application/json' \
     --data '{
         "sensor_id":556,
@@ -18,7 +19,7 @@ The user can send request via two apis endpoints
 
     This endpoint handles new add temperature request coming from multipl sensor points. As a request body sensor needs to send the sensor_id, temperature_value and time_stamp. sensor_id and temeperature_value is mandatory but time stamp is not. If timestamp is not sent I am adding current timestamp.
 
-    2. curl --location --request GET 'localhost:8080/api/aggregate' \
+     curl --location --request GET 'localhost:8080/api/aggregate' \
     --header 'Content-Type: application/json' \
     --data '{
         "sensor_id":556,
