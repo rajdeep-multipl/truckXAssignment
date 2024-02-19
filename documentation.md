@@ -1,5 +1,5 @@
 This project is written in Golang
-I have used GIN web framework, GORM orm and MySql database
+I have used GIN web framework, GORM orm, MySql database, Built in logger package for logging purposes. 
 
 I have added the shchema in deployments/deoploytable.sql file
 
@@ -30,7 +30,7 @@ The user can send request via two apis endpoints
 
     This endpoint fetches the data of a particular sensor, optionally given date or time range. The sensor_id is a mandatory field. if the date and time are not given then this endpoint fetches data of the sensor. If only date is not given and time given then it returns entries of todays data for that sensor within that time range.
 
-The apis now calls the controller functions.
+The apis calls the controller functions.
 
 In the controller folder I have added temperature controller which have methods to add new temperature and get the aggregated temeperature. controller operate on the data transfer objects to communicate with the client. 
 

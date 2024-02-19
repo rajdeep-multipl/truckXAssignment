@@ -5,6 +5,7 @@ import (
 	"time"
 )
 
+// in this interface we declare the necessary method signatures for temperature table
 type TemperatureRepoInf interface {
 	AddTemperatureRepo(temperature *models.Temperature) error
 	GetAggregateValuesForEachSensor() ([]models.AggregatedTemperature, error)
